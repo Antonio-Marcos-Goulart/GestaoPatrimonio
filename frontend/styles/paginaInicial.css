@@ -1,0 +1,241 @@
+main {
+  padding: 30px;
+  min-height: 100vh;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #002fff 0%, #00165e 100%);
+  color: rgb(255, 255, 255);
+  padding: 60px 40px;
+  border-radius: 15px;
+  border: 1px solid #bdc3c7;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* PODE SER USADO EM UMA PARTE ONDE A PESSOA ESTÁ VENDO A DEMO DO SISTEMA E NÃO PODE USAR AS FUNCIONALIDADES... O BOTÃO LEVA A COMPRA DO SISTEMA
+.cta-button { 
+  background: #5977fa;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.cta-button:hover { 
+  background: #ffffff;
+  color: black;
+  transform: translateY(-2px);
+}
+*/
+
+.hero-image i {
+  opacity: 0.3;
+}
+
+/* Estatísticas */
+.stats-section {
+  margin-bottom: 50px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border: 1px solid #bdc3c7;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: 0.3s ease;
+}
+
+/* Transição de movimento -- Não sei se é necessario -- seria bom se clicar e ir na pagina de cada estatistica
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+  */
+
+.stat-icon {
+  background: #0077ff;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.stat-info h3 {
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.stat-info p {
+  color: #7f8c8d;
+  font-size: 0.9em;
+}
+
+/* MENU HAMBURGUER */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #0077ff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 1.2em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-toggle:hover {
+  background: #002fff;
+}
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 250px;
+  }
+  
+  body {
+    margin-left: 250px;
+  }
+  
+  .hero-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2em;
+  }
+}
+
+/* TELAS MÉDIAS - Tablet */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  body {
+    margin-left: 0;
+  }
+  
+  body.sidebar-active {
+    margin-left: 0;
+  }
+  
+  .sidebar-overlay.active {
+    display: block;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.8em;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .alert-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .alert-time {
+    margin-left: 0;
+  }
+  
+  main {
+    padding: 20px 15px;
+    padding-top: 70px; /* Espaço para o botão hamburguer */
+  }
+}
+
+/* TELAS PEQUENAS - Mobile */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 280px;
+  }
+  
+  .menu-toggle {
+    top: 15px;
+    left: 15px;
+    padding: 10px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.5em;
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
+  
+  .hero-banner {
+    padding: 30px 20px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+}

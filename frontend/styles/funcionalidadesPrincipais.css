@@ -1,0 +1,69 @@
+.features-section {
+  margin-bottom: 50px;
+}
+
+.features-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  font-size: 2em;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: white;
+  border: 1px solid #bdc3c7;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra do card sem passar o mouse*/
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Sombra do card assim que passar o mouse*/
+}
+
+.feature-icon {
+  background-color: #0077ff;
+  color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  margin: 0 auto 20px;
+}
+
+.feature-card h3 {
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: #666666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.feature-link { /* link acessar pagina da funcionalidade*/
+  color: #0077ff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.feature-link:hover {
+  color: #002fff;
+}

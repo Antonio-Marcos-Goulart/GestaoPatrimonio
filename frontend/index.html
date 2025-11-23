@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gestão de Patrimônio - Início</title>
+
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="./styles/sidebar.css">
+  <link rel="stylesheet" href="./styles/paginaInicial.css">
+  <link rel="stylesheet" href="./styles/funcionalidadesPrincipais.css">
+  <link rel="stylesheet" href="./styles/footer.css">
+  <link rel="stylesheet" href="./styles/acoesRapidas.css">
+  <link rel="stylesheet" href="./styles/alert.css">
+  
+</head>
+<body>
+  <header>
+    <button class="menu-toggle" style="display: none;">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="sidebar-overlay" style="display: none;"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="fas fa-shield-alt"></i> Gestão Patrimônio</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#" class="active"><i class="fas fa-home"></i> <span>Início</span></a></li>
+          <li><a href="#"><i class="fas fa-plus-circle"></i> <span>Novo Item</span></a></li>
+          <li><a href="#"><i class="fas fa-boxes"></i> <span>Itens</span></a></li>
+          <li><a href="#"><i class="fas fa-truck-loading"></i> <span>Movimentações</span></a></li>
+          <li><a href="#"><i class="fas fa-clipboard-check"></i> <span>Vistorias</span></a></li>
+          <li><a href="#"><i class="fas fa-bell"></i> <span>Alertas</span></a></li>
+          <li><a href="./pages/relatorios.html"><i class="fas fa-chart-pie"></i> <span>Relatórios</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-user"> <!---Usuario do sistema-->
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <strong>Antônio Marcos</strong>
+            <small>Administrador</small>
+          </div>
+        </div>
+        <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </aside>
+
+  <main>
+    <!-- Banner Principal -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h1>Sistema de Gestão de Patrimônio</h1>
+        <p>Controle completo do seu patrimônio empresarial de forma inteligente e eficiente</p>
+       <!-- <button class="cta-button">Começar Agora</button>  -- ESSE BOTÃO PODE LEVAR A COMPRA DO USO POR UM NOVO CLIENTE QUE ESTÁ NA DEMO--> 
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-building fa-8x"></i>
+      </div>
+    </section>
+
+    <!-- Estatísticas Rápidas - pegar do banco -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-boxes"></i>
+          </div>
+          <div class="stat-info">
+            <h3>0</h3>
+            <p>Itens Cadastrados</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div class="stat-info">
+            <h3>0</h3>
+            <p>Manutenções Pendentes</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-info">
+            <h3>R$ 0,00</h3>
+            <p>Valor Total do Patrimônio</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="stat-info">
+            <h3>0%</h3>
+            <p>Itens Regularizados</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Funcionalidades Principais -->
+    <section class="features-section">
+      <h2>Funcionalidades Principais</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>Controle de Inventário</h3>
+          <p>Gerencie todos os bens patrimoniais com código, localização e status detalhados</p>
+          <a href="produtos.html" class="feature-link">Acessar <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <h3>Gestão de Manutenções</h3>
+          <p>Agende e acompanhe manutenções preventivas e corretivas dos equipamentos</p>
+          <a href="#servicos" class="feature-link">Acessar <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Relatórios Avançados</h3>
+          <p>Gere relatórios personalizados com gráficos e análises do patrimônio</p>
+          <a href="#contato" class="feature-link">Acessar <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-barcode"></i>
+          </div>
+          <h3>Identificação por código de barras</h3>
+          <p>Identifique rapidamente os bens através de códigos de barras</p>
+          <a href="#" class="feature-link">Acessar <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ações Rápidas -->
+    <section class="quick-actions">
+      <h2>Ações Rápidas</h2>
+
+      <div class="actions-grid">
+        <a href="novo-item.html" class="action-btn">
+          <i class="fas fa-plus"></i>
+          <span>Novo Item</span>
+        </a>
+
+        <a href="emitir-etiquetas.html" class="action-btn">
+          <i class="fas fa-barcode"></i>
+          <span>Emitir Etiquetas</span>
+        </a>
+
+        <a href="exportar-relatorio.html" class="action-btn">
+          <i class="fas fa-file-export"></i>
+          <span>Exportar Relatório</span>
+        </a>
+
+        <a href="atualizar-inventario.html" class="action-btn">
+          <i class="fas fa-sync"></i>
+          <span>Atualizar Inventário</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- Alertas e Notificações -- PEGAR DO BANCO -->
+    <section class="alerts-section">
+      <h2>Alertas e Notificações</h2>
+      <div class="alerts-container">
+        <div class="alert-item warning">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div class="alert-content">
+            <h4>0 Itens com Manutenção Atrasada</h4>
+            <p>Verifique os equipamentos com manutenção pendente</p>
+          </div>
+          <span class="alert-time">Há 2 dias</span>
+        </div>
+
+        <div class="alert-item info">
+          <i class="fas fa-info-circle"></i>
+          <div class="alert-content">
+            <h4>Inventário Mensal Disponível</h4>
+            <p>Relatório de inventário do mês atual já pode ser gerado</p>
+          </div>
+          <span class="alert-time">Hoje</span>
+        </div>
+
+        <div class="alert-item success">
+          <i class="fas fa-check-circle"></i>
+          <div class="alert-content">
+            <h4>Backup Realizado com Sucesso</h4>
+            <p>Backup automático do sistema concluído</p>
+          </div>
+          <span class="alert-time">Há 1 hora</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Gestão de Patrimonio</h4>
+        <p>Sistema de Gestão de Patrimônio Empresarial</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <p>suporte@patrimonio.com</p>
+        <p>(48) 91234-5678</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/menuLateral.js"></script>
+
+</body>
+</html>

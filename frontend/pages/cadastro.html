@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <aside id="sidebar" class="open">
+        <button id="toggle-btn" aria-label="Abrir/Fechar Menu">☰</button>
+        <h2>Patrimônio</h2>
+        <nav>
+            <ul id="menu">
+                <li><a href="#home" data-page="index.html">Início</a></li>
+                <li><a href="#cadastro" data-page="cadastro.html">Cadastro de Patrimônio</a></li>
+                <li><a href="#relatorios" data-page="relatorios.html">Relatórios</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <!-- ======= MENU LATERAL ======= -->
+        
+
+        <section id="cadastro" class="page">
+            <h1>Cadastro de Patrimônio</h1>
+            <form>
+                <label for="inputNome">Nome:</label>
+                <input id="inputNome" type="text" name="nome" /><br><br>
+
+                <label for="inputDescricao">Descrição:</label>
+                <input id="inputDescricao" type="text" name="descricao" /><br><br>
+
+                <label for="inputSerie">Número de Série:</label>
+                <input id="inputSerie" type="text" name="serie" /><br><br>
+
+                <button id="btnSalvar" type="button">Salvar</button>
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <aside id="sidebar" class="open">
+        <button id="toggle-btn" aria-label="Abrir/Fechar Menu">☰</button>
+        <h2>Patrimônio</h2>
+        <nav>
+        <ul id="menu">
+            <li><a href="#home" data-page="index.html">Início</a></li>
+            <li><a href="#cadastro" data-page="cadastro.html">Cadastro de Patrimônio</a></li>
+            <li><a href="#relatorios" data-page="relatorios.html">Relatórios</a></li>
+        </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <section id="relatorios" class="page">
+            <h1>Relatórios</h1>
+            <p>Aqui serão exibidos os relatórios de patrimônio.</p>
+            <ul id="listaRelatorios"></ul>
+        </section>
+    </main>
+    <script type="module" src="./js/main.js"></script>
+    
+</body>
+</html>

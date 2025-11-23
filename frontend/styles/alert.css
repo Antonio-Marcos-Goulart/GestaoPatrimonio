@@ -1,0 +1,58 @@
+.alerts-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.alerts-container {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #bdc3c7;
+  box-shadow: 0 4px 6px rgba(100, 100, 100, 0.184);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ecf0f1;
+  gap: 15px;
+}
+
+.alert-item:last-child {
+  border-bottom: none;
+}
+
+.alert-item.warning i {
+  color: #f31212;
+}
+
+.alert-item.info i {
+  color: #3498db;
+}
+
+.alert-item.success i {
+  color: #27ae60;
+}
+
+.alert-item i {
+  font-size: 1.5em;
+}
+
+.alert-content h4 {
+  color: #0080ff;
+  margin-bottom: 5px;
+}
+
+.alert-content p {
+  color: #7f8c8d;
+  font-size: 0.9em;
+}
+
+.alert-time {
+  margin-left: auto;
+  color: #95a5a6;
+  font-size: 0.8em;
+}
