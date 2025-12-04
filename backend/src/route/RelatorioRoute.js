@@ -2,7 +2,7 @@ import express from "express";
 import { RelatorioRepository } from "../repositories/RelatorioRepository.js";
 import { RelatorioService } from "../services/RelatorioService.js";
 import { RelatorioController } from "../controllers/RelatorioController.js";
-import db from "../database/db.js"; // sua conexão
+import db from "../database/db.js";
 
 const router = express.Router();
 
