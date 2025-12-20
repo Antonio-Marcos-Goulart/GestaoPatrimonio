@@ -1,9 +1,12 @@
+require('dotenv').config(); 
+
 const express = require("express");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./docs/swagger");
 
-const app = express();
+require("./config/database");
 
+const app = express();
 app.use(express.json());
 
 // Swagger
@@ -22,7 +25,9 @@ app.get("/teste", (req, res) => {
   res.json({ message: "Swagger OK" });
 });
 
-app.listen(3000, () => {
-  console.log("Servidor rodando em http://localhost:3000");
-  console.log("Swagger em http://localhost:3000/api-docs");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
+  console.log(`Swagger em http://localhost:${PORT}/api-docs`);
 });
