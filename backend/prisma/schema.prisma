@@ -1,0 +1,14 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Patrimonio {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  valor     Decimal
+  createdAt DateTime @default(now())
+}
