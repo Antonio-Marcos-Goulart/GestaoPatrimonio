@@ -6,6 +6,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Categoria {
+  id          Int          @id @default(autoincrement())
+  nome        String
+  patrimonios Patrimonio[]
+}
+
 model Patrimonio {
   id        Int      @id @default(autoincrement())
   nome      String
