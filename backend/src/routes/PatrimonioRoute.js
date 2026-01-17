@@ -1,21 +1,19 @@
-import express from "express";
-import { PatrimonioRepository } from "../repository/PatrimonioRepository.js";
-import { PatrimonioService } from "../service/PatrimonioService.js";
-import { PatrimonioController } from "../controller/PatrimonioController.js";
-import db from "../database/db.js"; // a conexão do seu ORM/BD
+import { Router } from 'express';
 
-const router = express.Router();
+import PatrimonioController from '../controllers/PatrimonioController.js';
+import PatrimonioService from '../services/PatrimonioService.js';
+import PatrimonioRepository from '../repositories/PatrimonioRepository.js';
 
-// Injeções de dependência
-const repository = new PatrimonioRepository(db);
+const router = Router();
+
+const repository = new PatrimonioRepository();
 const service = new PatrimonioService(repository);
 const controller = new PatrimonioController(service);
 
-// Rotas
-router.get("/", controller.findAll);
-router.get("/:id", controller.findById);
-router.post("/", controller.create);
-router.put("/:id", controller.update);
-router.delete("/:id", controller.delete);
+router.get('/', controller.listar);
+router.get('/:id', controller.buscar);
+router.post('/', controller.criar);
+router.put('/:id', controller.atualizar);
+router.delete('/:id', controller.deletar);
 
 export default router;

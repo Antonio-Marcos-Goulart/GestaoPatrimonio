@@ -1,35 +1,49 @@
 export default class PatrimonioController {
   constructor(service) {
     this.service = service;
+
+    this.listar = this.listar.bind(this);
+    this.buscar = this.buscar.bind(this);
+    this.criar = this.criar.bind(this);
+    this.atualizar = this.atualizar.bind(this);
+    this.deletar = this.deletar.bind(this);
   }
 
-  criar(data) {
-    try {
-      return this.service.criar(data);
-    } catch (error) {
-      alert("Erro ao criar patrimônio: " + error.message);
-      return null;
+  listar(req, res) {
+    const dados = this.service.listar();
+    return res.json(dados);
+  }
+
+  buscar(req, res) {
+    const { id } = req.params;
+    const dado = this.service.buscar(id);
+
+    if (!dado) {
+      return res.status(404).json({ error: 'Patrimônio não encontrado' });
     }
+
+    return res.json(dado);
   }
 
-  listar() {
-    return this.service.listar();
+  criar(req, res) {
+    const novo = this.service.criar(req.body);
+    return res.status(201).json(novo);
   }
 
-  buscar(id) {
-    return this.service.buscar(id);
-  }
+  atualizar(req, res) {
+    const { id } = req.params;
+    const atualizado = this.service.atualizar(id, req.body);
 
-  atualizar(id, data) {
-    try {
-      return this.service.atualizar(id, data);
-    } catch (error) {
-      alert("Erro ao atualizar: " + error.message);
-      return null;
+    if (!atualizado) {
+      return res.status(404).json({ error: 'Patrimônio não encontrado' });
     }
+
+    return res.json(atualizado);
   }
 
-  deletar(id) {
+  deletar(req, res) {
+    const { id } = req.params;
     this.service.deletar(id);
+    return res.status(204).send();
   }
 }
