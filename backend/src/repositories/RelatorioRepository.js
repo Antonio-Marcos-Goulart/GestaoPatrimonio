@@ -1,15 +1,15 @@
-export class RelatorioRepository {
-    constructor(databaseConnection) {
-        this.db = databaseConnection;
-    }
+export default class RelatorioRepository {
+  constructor(prisma) {
+    this.prisma = prisma;
+  }
 
-    async findAllPatrimonios() {
-        return await this.db.patrimonio.findMany();
-    }
+  findAllPatrimonios() {
+    return this.prisma.patrimonio.findMany();
+  }
 
-    async findPatrimonioById(id) {
-        return await this.db.patrimonio.findUnique({
-            where: { id },
-        });
-    }
+  findPatrimonioById(id) {
+    return this.prisma.patrimonio.findUnique({
+      where: { id }
+    });
+  }
 }

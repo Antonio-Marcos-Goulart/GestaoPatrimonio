@@ -1,31 +1,25 @@
-// ReportService.js
+export default class RelatorioService {
+  constructor(patrimonioRepository) {
+    this.patrimonioRepository = patrimonioRepository;
+  }
 
-export class RelatorioService {
-    constructor(relatorioRepository) {
-        this.relatorioRepository = relatorioRepository;
+  async gerarRelatorioCompleto() {
+    const patrimonios = await this.patrimonioRepository.findAll();
+
+    return {
+      totalItens: patrimonios.length,
+      valorTotal: patrimonios.reduce((acc, p) => acc + p.valor, 0),
+      itens: patrimonios
+    };
+  }
+
+  async gerarRelatorioIndividual(id) {
+    const item = await this.patrimonioRepository.findById(id);
+
+    if (!item) {
+      throw new Error("Patrimônio não encontrado");
     }
 
-    async gerarRelatorioCompleto() {
-        const patrimonios = await this.relatorioRepository.findAllPatrimonios();
-
-        return {
-            totalItens: patrimonios.length,
-            valorTotal: patrimonios.reduce((acc, p) => acc + p.valor, 0),
-            itens: patrimonios
-        };
-    }
-
-    async gerarRelatorioIndividual(id) {
-        const item = await this.relatorioRepository.findPatrimonioById(id);
-
-        if (!item) throw new Error("Patrimônio não encontrado");
-
-        return {
-            id: item.id,
-            nome: item.nome,
-            descricao: item.descricao,
-            valor: item.valor,
-            status: item.status
-        };
-    }
+    return item;
+  }
 }

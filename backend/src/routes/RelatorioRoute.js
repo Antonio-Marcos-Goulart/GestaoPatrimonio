@@ -1,16 +1,16 @@
-import express from "express";
-import { RelatorioRepository } from "../repositories/RelatorioRepository.js";
-import { RelatorioService } from "../services/RelatorioService.js";
-import { RelatorioController } from "../controllers/RelatorioController.js";
-import db from "../database/db.js";
+import { Router } from 'express';
 
-const router = express.Router();
+import RelatorioController from '../controllers/RelatorioController.js';
+import RelatorioService from '../services/RelatorioService.js';
+import PatrimonioRepository from '../repositories/PatrimonioRepository.js';
 
-const repository = new RelatorioRepository(db);
-const service = new RelatorioService(repository);
+const router = Router();
+
+const patrimonioRepository = new PatrimonioRepository();
+const service = new RelatorioService(patrimonioRepository);
 const controller = new RelatorioController(service);
 
-router.get("/relatorios/patrimonios", controller.gerarRelatorioCompleto);
-router.get("/relatorios/patrimonios/:id", controller.gerarRelatorioIndividual);
+router.get('/', controller.gerarRelatorioCompleto);
+router.get('/:id', controller.gerarRelatorioIndividual);
 
 export default router;
