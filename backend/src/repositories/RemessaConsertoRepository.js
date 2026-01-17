@@ -1,43 +1,34 @@
-export default class RemessConsertoRepository {
-    constructor(){
-        this.key = "remessasConserto";
-        this.remessasConserto = this._load();
-    }
+export default class RemessaConsertoRepository {
+  constructor() {
+    this.remessas = [];
+  }
 
-    _load(){
-        const data = localStorage.getItem(this.key);
-        return data ? JSON.parse(data) : [];
-    }
+  save(remessa) {
+    this.remessas.push(remessa);
+    return remessa;
+  }
 
-    _save(){
-        localStorage.setItem(this.key, JSON.stringify(this.remessasConserto));
-    }
+  findAll() {
+    return this.remessas;
+  }
 
-    save(remessaConserto){
-        this.remessasConserto.push(remessaConserto);
-        this._save();
-        return remessaConserto;
-    }
+  findById(id) {
+    return this.remessas.find(r => r.id == id);
+  }
 
-    findAll(){
-        return this.remessasConserto;
-    }
+  update(id, dados) {
+    const index = this.remessas.findIndex(r => r.id == id);
+    if (index === -1) return null;
 
-    findById(id){
-        return this.remessasConserto.find((r) => r.id == id);
-    }
+    this.remessas[index] = {
+      ...this.remessas[index],
+      ...dados
+    };
 
-    update(id, novo){
-        const index = this.remessasConserto.findIndex((r) => r.id == id);
-        if(index === -1) return null;
+    return this.remessas[index];
+  }
 
-        this.remessasConserto[index] = {...this.remessasConserto[index], ...novo};
-        this._save();
-        return this.remessasConserto[index];
-    }
-
-    delete(id){
-        this.remessasConserto = this.remessasConserto.filter((r) => r.id != id);
-        this._save();
-    }
+  delete(id) {
+    this.remessas = this.remessas.filter(r => r.id != id);
+  }
 }

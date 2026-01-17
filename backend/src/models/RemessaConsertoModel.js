@@ -1,17 +1,22 @@
+import PatrimonioModel from "./PatrimonioModel.js";
+
 export default class RemessaConsertoModel {
-    constructor(dto) {
-        this.id = dto.id;
-        this.valorTotal = dto.valorTotal;
-        this.dataEnvio = dto.dataEnvio;
-        this.fornecedor = dto.fornecedor;
+  constructor(dto) {
+    this.id = dto.id;
+    this.valorTotal = dto.valorTotal;
+    this.dataEnvio = dto.dataEnvio;
+    this.dataRetorno = dto.dataRetorno;
+    this.fornecedor = dto.fornecedor;
 
-        this.patrimonios = Array.isArray(dto.patrimonios)
-            ? dto.patrimonios.map(p => new PatrimonioModel(p))
-            : [];
+    this.patrimonios = Array.isArray(dto.patrimonios)
+      ? dto.patrimonios.map(p => new PatrimonioModel(p))
+      : [];
+  }
 
-    }
-
-    toJSON() {
-        return { ...this, patrimonios: this.patrimonios.map(p => p.toJSON()) };
-    }
+  toJSON() {
+    return {
+      ...this,
+      patrimonios: this.patrimonios.map(p => p.toJSON())
+    };
+  }
 }

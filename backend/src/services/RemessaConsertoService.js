@@ -1,41 +1,55 @@
-import RemessaConcertoDTO from "../dtos/RemessaConcertoDTO";
+import RemessaConsertoDTO from "../dtos/RemessaConsertoDTO.js";
+import RemessaConsertoModel from "../models/RemessaConsertoModel.js";
 
 export default class RemessaConsertoService {
   constructor(repository) {
     this.repository = repository;
   }
-  validarDTO(dto) {
-    if (!(dto instanceof RemessaConcertoDTO)) {
-      dto = new RemessaConcertoDTO(dto);
-    }
 
-    // ID obrigatório
-    if (dto.id === undefined || dto.id === null) {
+  validarDTO(data) {
+    const dto = data instanceof RemessaConsertoDTO
+      ? data
+      : new RemessaConsertoDTO(data);
+
+    if (dto.id == null) {
       throw new Error("ID é obrigatório.");
     }
 
-    // Data de envio
-    if (dto.dataEnvio == null || isNaN(new Date(dto.dataEnvio).getTime())) {
+    if (!dto.dataEnvio || isNaN(new Date(dto.dataEnvio).getTime())) {
       throw new Error("Data de envio inválida.");
     }
 
-    // Fornecedor obrigatório
-    if (dto.fornecedor == null || dto.fornecedor.trim() === "") {
+    if (!dto.fornecedor || dto.fornecedor.trim() === "") {
       throw new Error("Fornecedor é obrigatório.");
     }
 
-    // Lista de patrimônios
     if (!Array.isArray(dto.patrimonios) || dto.patrimonios.length === 0) {
-      throw new Error("É necessário informar ao menos um patrimônio na remessa.");
+      throw new Error("Informe ao menos um patrimônio.");
     }
 
-    // Se tudo ok, devolve o DTO “limpo”
     return dto;
   }
 
-  salvarRemessaConserto(dtoData) {
-    const dto = this.validarDTO(dtoData)
-    return new RemessaConcertoDTO(dto);
+  create(data) {
+    const dto = this.validarDTO(data);
+    const model = new RemessaConsertoModel(dto);
+    return this.repository.save(model);
+  }
+
+  findAll() {
+    return this.repository.findAll();
+  }
+
+  findById(id) {
+    return this.repository.findById(id);
+  }
+
+  update(id, data) {
+    const dto = this.validarDTO({ ...data, id });
+    return this.repository.update(id, dto);
+  }
+
+  delete(id) {
+    this.repository.delete(id);
   }
 }
-
